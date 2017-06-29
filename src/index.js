@@ -1,19 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from './components/routes/Routes';
 
 require('./index.css');
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        Hello World!
-      </div>
-    );
-  }
-}
-
-
 ReactDOM.render(
-  <App />, document.getElementById('app'),
+  <Router>
+    <Routes />
+  </Router>, document.getElementById('app'),
 );
