@@ -16,7 +16,7 @@ class Forecast extends React.Component {
 
   getWeather = (city) => {
     weatherDataRetreival(city)
-    .then((data) => { 
+    .then((data) => {
       this.setState((prevState) => {
         return { weather: data.data.list, loading: !prevState.loading };
       });
@@ -24,9 +24,11 @@ class Forecast extends React.Component {
   }
 
   render() {
+    const loading = this.state.loading;
+
     return (
       <div>
-        Forecast div!!
+       Weather Container
       </div>
     );
   }
@@ -35,3 +37,4 @@ class Forecast extends React.Component {
 module.exports = Forecast;
 
 // Do we need to use queryString module?
+// {loading ? 'Loading Data' : 'Data has loaded'}
