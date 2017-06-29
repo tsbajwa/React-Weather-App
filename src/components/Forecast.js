@@ -1,4 +1,5 @@
 import React from 'react';
+import weatherDataRetreival from './util/api';
 
 class Forecast extends React.Component {
   constructor(props) {
@@ -14,7 +15,12 @@ class Forecast extends React.Component {
   }
 
   getWeather = (city) => {
-    console.log(city);
+    weatherDataRetreival(city)
+    .then((data) => { 
+      this.setState((prevState) => {
+        return { weather: data.data.list, loading: !prevState.loading };
+      });
+    });
   }
 
   render() {
