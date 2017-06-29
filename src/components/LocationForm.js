@@ -17,7 +17,7 @@ class LocationForm extends React.Component {
           <input type='text' value={this.state.location} onChange={this.handleChange}></input>
           <Link to= {{
             pathname: '/forecast',
-            search: `?city=${this.state.location}`,
+            search: `${this.state.location}`,
           }}>Get Weather</Link>
       </div>
     );
