@@ -1,4 +1,5 @@
 import React from 'react';
+import DayView from './DayView';
 import weatherDataRetreival from './util/api';
 
 class Forecast extends React.Component {
@@ -16,20 +17,30 @@ class Forecast extends React.Component {
 
   getWeather = (city) => {
     weatherDataRetreival(city)
-    .then((data) => {
+    .then((weatherData) => {
       this.setState((prevState) => {
-        return { weather: data.data.list, loading: !prevState.loading };
+        console.log(weatherData.data.list[0])
+        return { weather: weatherData.data.list, loading: !prevState.loading };
       });
     });
   }
 
   render() {
     const loading = this.state.loading;
-
+    let dayView;
+    if (loading) {
+      dayView = 'Loading';
+    } else {
+      dayView = <DayView
+      icon={this.state.weather[0].weather[0].icon}
+      date={this.state.weather[0].dt_txt}
+      />;
+    }
     return (
       <div>
-       Weather Container
+        { dayView }
       </div>
+      
     );
   }
 }
