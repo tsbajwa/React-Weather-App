@@ -30,10 +30,15 @@ class Forecast extends React.Component {
     if (loading) {
       dayView = 'Loading';
     } else {
-      dayView = <DayView
-      icon={this.state.weather[0].weather[0].icon}
-      date={this.state.weather[0].dt_txt}
-      />;
+      dayView = this.state.weather.map(dailyWeather =>
+        (
+          <DayView
+          key={dailyWeather.dt}
+          icon={dailyWeather.weather[0].icon}
+          date={dailyWeather.dt}
+          />
+       ),
+      );
     }
     return (
       <div>
