@@ -11,15 +11,14 @@ class Forecast extends React.Component {
     };
   }
   componentDidMount = () => {
-    const city = this.props.location.search;
+    const city = this.props.location.search; // TODO: Use queryString module, to send 'cleaner' city data to api, i.e just cityname without other characters
     this.getWeather(city);
   }
-
   getWeather = (city) => {
     weatherDataRetreival(city)
     .then((weatherData) => {
       this.setState((prevState) => {
-        console.log(weatherData.data.list[0])
+        console.log(weatherData.data.list[0]) 
         return { weather: weatherData.data.list, loading: !prevState.loading };
       });
     });
@@ -47,5 +46,4 @@ class Forecast extends React.Component {
 
 module.exports = Forecast;
 
-// Do we need to use queryString module?
-// {loading ? 'Loading Data' : 'Data has loaded'}
+
