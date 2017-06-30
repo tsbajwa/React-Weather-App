@@ -33,9 +33,8 @@ class Forecast extends React.Component {
       dayView = this.state.weather.map(dailyWeather =>
         (
           <DayView
+          dailyWeather={dailyWeather}
           key={dailyWeather.dt}
-          icon={dailyWeather.weather[0].icon}
-          date={dailyWeather.dt}
           />
        ),
       );
