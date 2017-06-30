@@ -18,7 +18,7 @@ class Forecast extends React.Component {
     weatherDataRetreival(city)
     .then((weatherData) => {
       this.setState((prevState) => {
-        console.log(weatherData.data.list[0]) 
+        console.log(weatherData.data.list[0]);
         return { weather: weatherData.data.list, loading: !prevState.loading };
       });
     });
@@ -39,11 +39,8 @@ class Forecast extends React.Component {
       <div>
         { dayView }
       </div>
-      
     );
   }
 }
 
 module.exports = Forecast;
-
-
