@@ -1,14 +1,12 @@
 import React from 'react';
 import LocationForm from './LocationForm';
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <LocationForm />
-      </div>
-    );
-  }
+export default function App() {
+  return (
+    <div>
+      <h1>Enter City and State</h1>
+      <LocationForm />
+    </div>
+  );
 }
 
-module.exports = App;
