@@ -13,7 +13,7 @@ class Forecast extends React.Component {
     };
   }
   componentDidMount = () => {
-    const parsedUrl = queryString.parse(this.props.location.search)
+    const parsedUrl = queryString.parse(this.props.location.search);
     this.getWeather(parsedUrl.city);
   }
   getWeather = (city) => {
@@ -23,7 +23,7 @@ class Forecast extends React.Component {
     });
   }
   handleClick = () => {
-    console.log('clicked');
+    this.props.history.push('/detailed');
   }
 
   render() {
