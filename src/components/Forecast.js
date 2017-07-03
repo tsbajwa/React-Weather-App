@@ -23,6 +23,9 @@ class Forecast extends React.Component {
       });
     });
   }
+  handleClick() {
+    console.log('Clicks were made');
+  }
 
   render() {
     const loading = this.state.loading;
@@ -33,6 +36,7 @@ class Forecast extends React.Component {
       dayView = this.state.weather.map(dailyWeather =>
         (
           <DayView
+          onClick ={() => this.handleClick()}
           dailyWeather={dailyWeather}
           key={dailyWeather.dt}
           />
