@@ -43,15 +43,7 @@ class Forecast extends React.Component {
     if (loading) {
       dayView = 'Loading';
     } else {
-      dayView = this.state.weather.map(dailyWeather =>
-        (
-          <DayView
-          onClick ={() => this.handleClick.call(null, dailyWeather)}
-          dailyWeather={dailyWeather}
-          key={dailyWeather.dt}
-          />
-       ),
-      );
+      dayView = this.state.weather.map(dailyWeather => <DayView onClick ={() => this.handleClick.call(null, dailyWeather)} dailyWeather={dailyWeather} key={dailyWeather.dt}/>);
     }
     return (
       <div>
