@@ -7,3 +7,5 @@ export default function Detailed() {
     </div>
   );
 }
+
+// props.location.state.dailyWeather should be where info is stored

@@ -1,6 +1,6 @@
 import React from 'react';
 import queryString from 'query-string';
-import { Route, Redirect } from 'react-router';
+import { Redirect } from 'react-router-dom';
 import DayView from './DayView';
 import weatherDataRetreival from './util/api';
 
@@ -10,6 +10,8 @@ class Forecast extends React.Component {
     this.state = {
       weather: [],
       loading: true,
+      redirect: false,
+      dailyWeather: {},
     };
   }
   componentDidMount = () => {
@@ -22,20 +24,29 @@ class Forecast extends React.Component {
       this.setState(prevState => ({ weather: weatherData.data.list, loading: !prevState.loading }));
     });
   }
-  handleClick = () => {
-    this.props.history.push('/detailed');
+  handleClick = (dailyWeather) => {
+    this.setState({ redirect: true, dailyWeather });
+    console.log(dailyWeather);
   }
 
   render() {
     const loading = this.state.loading;
     let dayView;
+
+    if (this.state.redirect) {
+      return <Redirect to = {{
+        pathname: '/detailed',
+        state: { dailyWeather: this.state.dailyWeather },
+      }} />;
+    }
+
     if (loading) {
       dayView = 'Loading';
     } else {
       dayView = this.state.weather.map(dailyWeather =>
         (
           <DayView
-          onClick ={() => this.handleClick()}
+          onClick ={this.handleClick.bind(null, dailyWeather)}
           dailyWeather={dailyWeather}
           key={dailyWeather.dt}
           />
