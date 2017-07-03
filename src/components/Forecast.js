@@ -1,4 +1,5 @@
 import React from 'react';
+import queryString from 'query-string';
 import DayView from './DayView';
 import weatherDataRetreival from './util/api';
 
@@ -11,8 +12,8 @@ class Forecast extends React.Component {
     };
   }
   componentDidMount = () => {
-    const city = this.props.location.search; // TODO: Use queryString module, to send 'cleaner' city data to api, i.e just cityname without other characters
-    this.getWeather(city);
+    const parsedUrl = queryString.parse(this.props.location.search)
+    this.getWeather(parsedUrl.city);
   }
   getWeather = (city) => {
     weatherDataRetreival(city)
