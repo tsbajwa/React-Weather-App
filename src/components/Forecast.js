@@ -12,8 +12,8 @@ class Forecast extends React.Component {
     dailyWeather: {},
   }
   componentDidMount = () => {
-    const parsedUrl = queryString.parse(this.props.location.search);
-    this.getWeather(parsedUrl.city);
+    this.city = queryString.parse(this.props.location.search).city;
+    this.getWeather(this.city);
   }
   getWeather = (city) => {
     weatherDataRetreival(city)
@@ -22,8 +22,8 @@ class Forecast extends React.Component {
     });
   }
   handleClick = (dailyWeather) => {
+    dailyWeather.city = this.city;
     this.setState({ redirect: true, dailyWeather });
-    console.log(dailyWeather);
   }
 
   render() {
