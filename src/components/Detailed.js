@@ -6,10 +6,7 @@ export default function Detailed(props) {
   const information = [tempMin, tempMax, humidity, description];
   return (
     <div>
-     {tempMin}
-     {tempMax}
-     {humidity}
-     {description}
+    {information.map((data, index) => <li key={index}>{data}</li>)}
     </div>
   );
 }
