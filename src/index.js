@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './components/routes/Routes';
 
-require('./index.css');
+require('./style/main.scss');
 
 ReactDOM.render(
   <Routes />, document.getElementById('app'),
