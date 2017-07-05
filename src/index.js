@@ -6,7 +6,5 @@ import Routes from './components/routes/Routes';
 require('./index.css');
 
 ReactDOM.render(
-  <Router>
-    <Routes />
-  </Router>, document.getElementById('app'),
+  <Routes />, document.getElementById('app'),
 );
