@@ -1,11 +1,17 @@
 import React from 'react';
 
-export default function Detailed() {
+export default function Detailed(props) {
+  const { temp_min: tempMin, temp_max: tempMax, humidity } = props.location.state.dailyWeather.main;
+  const description = props.location.state.dailyWeather.weather[0].description;
+  const information = [tempMin, tempMax, humidity, description];
   return (
     <div>
-      This is the detailed component!
+     {tempMin}
+     {tempMax}
+     {humidity}
+     {description}
     </div>
   );
 }
 
-// props.location.state.dailyWeather should be where info is stored
+// Need to bring in location prop

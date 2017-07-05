@@ -5,14 +5,11 @@ import DayView from './DayView';
 import weatherDataRetreival from './util/api';
 
 class Forecast extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      weather: [],
-      loading: true,
-      redirect: false,
-      dailyWeather: {},
-    };
+  state = {
+    weather: [],
+    loading: true,
+    redirect: false,
+    dailyWeather: {},
   }
   componentDidMount = () => {
     const parsedUrl = queryString.parse(this.props.location.search);
