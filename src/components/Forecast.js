@@ -43,7 +43,7 @@ class Forecast extends React.Component {
       dayView = this.state.weather.map(dailyWeather => <DayView onClick ={() => this.handleClick(dailyWeather)} dailyWeather={dailyWeather} key={dailyWeather.dt}/>);
     }
     return (
-      <div>
+      <div className='forecast-container'>
         { dayView }
       </div>
     );
