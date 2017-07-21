@@ -44,7 +44,13 @@ class Forecast extends React.Component {
     }
     return (
       <div className='forecast-container'>
-        { dayView }
+        <div>
+          <h1>{this.city}</h1>
+          <h2>Five Day Forecast</h2>
+        </div>
+        <div className='forecast-container__dayview'>
+          { dayView }
+        </div>
       </div>
     );
   }
