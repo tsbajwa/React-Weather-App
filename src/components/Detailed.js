@@ -2,10 +2,10 @@ import React from 'react';
 
 export default function Detailed(props) {
   const weatherProp = props.location.state.dailyWeather;
-  console.log(weatherProp)
-  const { min, max, humidity } = weatherProp.temp;
+  const { min, max } = weatherProp.temp;
   const { description, icon } = weatherProp.weather[0];
   const city = weatherProp.city;
+  const humidity = weatherProp.humidity;
   const information = [description, min, max, humidity];
   return (
     <div>
