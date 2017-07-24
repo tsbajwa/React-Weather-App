@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import DayView from './DayView';
 import weatherDataRetreival from './util/api';
 
-class Forecast extends React.Component {
+export default class Forecast extends React.Component {
   state = {
     weather: [],
     loading: true,
@@ -55,5 +55,3 @@ class Forecast extends React.Component {
     );
   }
 }
-
-module.exports = Forecast;
