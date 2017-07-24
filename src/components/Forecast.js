@@ -2,7 +2,7 @@ import React from 'react';
 import queryString from 'query-string';
 import { Redirect } from 'react-router-dom';
 import DayView from './DayView';
-import weatherDataRetreival from './util/api';
+import weatherDataRetreival from './../util/api';
 
 export default class Forecast extends React.Component {
   state = {

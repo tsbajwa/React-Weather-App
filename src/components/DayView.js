@@ -1,5 +1,5 @@
 import React from 'react';
-import getDate from './util/helpers';
+import getDate from './../util/helpers';
 
 export default function DayView(props) {
   const icon = props.dailyWeather.weather[0].icon;
