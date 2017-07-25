@@ -21,26 +21,18 @@ export default class Forecast extends React.Component {
       this.setState(prevState => ({ weather: weatherData.data.list, loading: !prevState.loading }));
     });
   }
-  handleClick = (dailyWeather) => {
-    dailyWeather.city = this.city;
-    this.setState({ redirect: true, dailyWeather });
-  }
+
 
   render() {
     const loading = this.state.loading;
     let dayView;
 
-    if (this.state.redirect) {
-      return <Redirect to = {{
-        pathname: '/detailed',
-        state: { dailyWeather: this.state.dailyWeather },
-      }} />;
-    }
-
     if (loading) {
       dayView = 'Loading';
     } else {
-      dayView = this.state.weather.map(dailyWeather => <DayViewContainer onClick ={() => this.handleClick(dailyWeather)} dailyWeather={dailyWeather} key={dailyWeather.dt}/>);
+      dayView = <DayViewContainer
+        weather={this.state.weather}
+      />;
     }
     return (
       <div className='forecast-container'>
