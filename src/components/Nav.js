@@ -1,11 +1,11 @@
 import React from 'react';
-import LocationForm from './LocationForm';
+import LocationFormContainer from '../containers/LocationFormContainer';
 
 export default function Nav() {
   return (
     <div className='navbar'>
      <h1>Weather App</h1>
-     <LocationForm />
+     <LocationFormContainer />
     </div>
   );
 }
