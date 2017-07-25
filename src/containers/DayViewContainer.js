@@ -12,7 +12,7 @@ export default class DayViewContainer extends React.Component {
     };
   }
   handleClick = (dailyWeather) => {
-    dailyWeather.city = this.city;
+    dailyWeather.city = this.props.city;
     this.setState({ redirect: true, dailyWeather });
   }
 

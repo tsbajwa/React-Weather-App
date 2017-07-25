@@ -4,15 +4,19 @@ import DayViewContainer from '../containers/DayViewContainer';
 import weatherDataRetreival from './../util/api';
 
 export default class Forecast extends React.Component {
-  state = {
-    weather: [],
-    loading: true,
-    redirect: false,
-    dailyWeather: {},
+  constructor(props) {
+    super(props);
+    this.state = {
+      weather: [],
+      loading: true,
+      city: '',
+    };
   }
+
   componentDidMount = () => {
-    this.city = queryString.parse(this.props.location.search).city;
-    this.getWeather(this.city);
+    console.log(this)
+    this.setState(() => ({ city: queryString.parse(this.props.location.search).city }));
+    this.getWeather(this.city); //Why not this.state.city?
   }
   getWeather = (city) => {
     weatherDataRetreival(city)
@@ -29,12 +33,12 @@ export default class Forecast extends React.Component {
     if (loading) {
       dayView = 'Loading';
     } else {
-      dayView = <DayViewContainer weather={this.state.weather} />;
+      dayView = <DayViewContainer weather={this.state.weather} city={this.state.city}/>;
     }
     return (
       <div className='forecast-container'>
         <div>
-          <h1>{this.city}</h1>
+          <h1>{this.state.city}</h1>
           <h2>Five Day Forecast</h2>
         </div>
         <div className='forecast-container__dayview'>
