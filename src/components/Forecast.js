@@ -1,7 +1,7 @@
 import React from 'react';
 import queryString from 'query-string';
 import { Redirect } from 'react-router-dom';
-import DayView from './DayView';
+import DayViewContainer from '../containers/DayViewContainer';
 import weatherDataRetreival from './../util/api';
 
 export default class Forecast extends React.Component {
@@ -40,7 +40,7 @@ export default class Forecast extends React.Component {
     if (loading) {
       dayView = 'Loading';
     } else {
-      dayView = this.state.weather.map(dailyWeather => <DayView onClick ={() => this.handleClick(dailyWeather)} dailyWeather={dailyWeather} key={dailyWeather.dt}/>);
+      dayView = this.state.weather.map(dailyWeather => <DayViewContainer onClick ={() => this.handleClick(dailyWeather)} dailyWeather={dailyWeather} key={dailyWeather.dt}/>);
     }
     return (
       <div className='forecast-container'>
