@@ -9,7 +9,7 @@ export default function DetailedContainer(props) {
   const humidity = weatherProp.humidity;
 
   return (
-    <Detailed 
+    <Detailed
     city={city}
     icon={icon}
     description={description}
