@@ -9,9 +9,9 @@ export default function Detailed(props) {
       </div>
       <div>
         <p>{props.description}</p>
-        <p>Min: {props.min}</p>
-        <p>Max: {props.max}</p>
-        <p>Humidity: {props.humidity}</p>
+        <p>Min: {props.min}°C</p>
+        <p>Max: {props.max}°C</p>
+        <p>Humidity: {props.humidity}%</p>
       </div>
     </div>
   );
