@@ -5,7 +5,7 @@ function dateFormat(day, date, month) {
   return `${dayName[day]} ${date} ${monthName[month]}`;
 }
 
-export default function getDate(unix) {
+export function getDate(unix) {
   const date = new Date(unix * 1000);
   const day = date.getDay();
   const dateNumber = date.getDate();
@@ -14,3 +14,7 @@ export default function getDate(unix) {
   return dateFormat(day, dateNumber, month);
 }
 
+
+export function Capitilize(str) {
+  return str.replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+}

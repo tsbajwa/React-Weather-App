@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import DayView from '../components/DayView';
-import getDate from '../util/helpers';
+import { getDate } from '../util/helpers';
 
 export default class DayViewContainer extends React.Component {
   constructor(props) {

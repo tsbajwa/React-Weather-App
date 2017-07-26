@@ -1,6 +1,7 @@
 import React from 'react';
 import queryString from 'query-string';
 import weatherDataRetreival from './../util/api';
+import { Capitilize } from './../util/helpers';
 import Forecast from '../components/Forecast';
 
 export default class ForecastContainer extends React.Component {
@@ -15,12 +16,12 @@ export default class ForecastContainer extends React.Component {
 
   componentDidMount = () => {
     this.city = queryString.parse(this.props.location.search).city;
-    this.setState(() => ({ city: this.city }));
+    this.setState(() => ({ city: Capitilize(this.city) }));
     this.getWeather(this.city);
   }
   componentWillReceiveProps = () => {
     this.city = queryString.parse(this.props.location.search).city;
-    this.setState(() => ({ city: this.city }));
+    this.setState(() => ({ city: Capitilize(this.city) }));
     this.getWeather(this.city);
   }
   getWeather = (city) => {
