@@ -14,16 +14,17 @@ export default class ForecastContainer extends React.Component {
   }
 
   componentDidMount = () => {
-    console.log(this)
-    console.log(queryString.parse(this.props.location.search).city)
-    this.setState(() => ({ city: queryString.parse(this.props.location.search).city }));
-    this.getWeather(this.city); //Why not this.state.city?
+    this.city = queryString.parse(this.props.location.search).city
+    this.setState(() => ({ city: this.city }));
+    this.getWeather(this.city);
   }
   componentWillReceiveProps = () => {
-    this.setState(() => ({ city: queryString.parse(this.props.location.search).city }));
-    this.getWeather(this.city); //Why not this.state.city?
+    this.city = queryString.parse(this.props.location.search).city
+    this.setState(() => ({ city: this.city }));
+    this.getWeather(this.city);
   }
   getWeather = (city) => {
+    console.log(this)
     weatherDataRetreival(city)
     .then((weatherData) => {
       this.setState(() => ({ weather: weatherData.data.list, loading: false }));
