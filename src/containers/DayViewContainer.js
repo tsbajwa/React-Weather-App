@@ -26,7 +26,7 @@ export default class DayViewContainer extends React.Component {
 
     const view = this.props.weather.map(dailyWeather => <DayView onClick ={() => this.handleClick(dailyWeather)} icon={dailyWeather.weather[0].icon} date={getDate(dailyWeather.dt)} key={dailyWeather.dt}/>);
     return (
-      <div>
+      <div className='dayViewContainer'>
         {view}
       </div>
     );

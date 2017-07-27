@@ -1,13 +1,5 @@
-.forecast-container {
+.forecast {
   display: flex;
   flex-direction: column;
   text-align: center;
-
-  &__dayview {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
 }

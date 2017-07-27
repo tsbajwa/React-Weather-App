@@ -3,7 +3,7 @@ import DayViewContainer from '../containers/DayViewContainer';
 
 export default function Forecast(props) {
   return (
-    <div>
+    <div className='forecast'>
       <h1>{props.city}</h1>
       <h2>Five Day Forecast</h2>
       <DayViewContainer
