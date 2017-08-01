@@ -4,8 +4,6 @@ Building a Weather App using [Open Weather API](http://openweathermap.org/api)
 
 ### How to use
 
-#### Please note this is still a Work in Progress
-
 To use application:
 
 * Open terminal.
